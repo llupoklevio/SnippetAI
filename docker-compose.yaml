@@ -1,0 +1,13 @@
+services:
+
+  postgtes:
+    image: postgres:18.2-alpine
+    env_file:
+      - .env
+    ports:
+      - "5433:5432"
+    volumes:
+      - my_postgres_data:/var/lib/postgresql/18/docker
+
+volumes:
+  my_postgres_data:
