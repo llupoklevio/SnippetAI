@@ -22,6 +22,7 @@ services:
   backendnode:
     build:
       context: ../../SnippetAI_BE/SnippetAI_Backend
+      target: runtime
     env_file:
       - .env
     environment:
