@@ -19,7 +19,7 @@ services:
       - my_postgres_data:/var/lib/postgresql/18/docker
 
 
-  backendNode:
+  backend_node:
     build:
       context: ../../SnippetAI_BE/SnippetAI_Backend
       target: runtime
@@ -34,7 +34,7 @@ services:
           condition: service_healthy
 
 
-  backendNodeDev:
+  backend_node_dev:
     build:
       context: ../../SnippetAI_BE/SnippetAI_Backend
       target: dev
