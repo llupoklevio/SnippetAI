@@ -19,7 +19,7 @@ services:
       - my_postgres_data:/var/lib/postgresql/18/docker
 
 
-  backendnode:
+  backendNode:
     build:
       context: ../../SnippetAI_BE/SnippetAI_Backend
       target: runtime
@@ -32,6 +32,21 @@ services:
     depends_on:
        postgres:
           condition: service_healthy
+
+
+  backendNodeDev:
+    build:
+      context: ../../SnippetAI_BE/SnippetAI_Backend
+      target: dev
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3001:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 
   redis:
